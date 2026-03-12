@@ -11,38 +11,38 @@ Canonical source of truth for software engineering patterns across projects and 
 
 ## Skill Matrix
 
-Skills are portable patterns that guide code generation. Each skill defines rules, code examples, and conventions for a specific concern.
+Skills are portable patterns that guide code generation. Each skill defines rules, code examples, and conventions for a specific concern. Skills follow [semantic versioning](VERSIONING.md). See [CHANGELOG.md](CHANGELOG.md) for what changed in each version.
 
-**Legend:** Y = implemented, — = not yet, N/A = not applicable
+**Legend:** version = implemented at that version, — = not yet defined or implemented, N/A = not applicable
 
-| Skill | Category | java | rust | Notes |
-|---|---|---|---|---|
-| project-structure | Core | Y | Y | Java: domain-oriented packages. Rust: domain-oriented modules, lib/bin split |
-| component-design | Core | Y | Y | Java: controllers/services/repos/clients. Rust: services/repos/clients/calculators |
-| naming-conventions | Core | Y | — | `*Service`, `*Client`, `*Calculator` suffixes. Rust follows informally |
-| entity-design | Core | Y | N/A | JPA-specific (`with*` fluent mutators) |
-| dependency-injection | Core | Y | N/A | Spring DI. Rust uses trait objects — see trait-boundaries |
-| trait-boundaries | Core | N/A | Y | Rust: traits as contracts, `Box<dyn Trait>`, `RefCell` for test mutability |
-| error-handling | Core | Y | Y | Java: exception hierarchy + `@ControllerAdvice`. Rust: `thiserror` + `anyhow` |
-| configuration | Core | Y | — | Java: `@ConfigurationProperties`, env vars, profiles. Rust: TBD |
-| input-validation | Core | — | — | Where/how to validate, sanitization, boundary rules |
-| api-design | Core | — | — | URL conventions, status codes, pagination, versioning, response shape |
-| authentication | Security | — | — | Auth flow patterns (JWT, OAuth2, API keys), middleware placement |
-| authorization | Security | — | — | Role/permission checks, resource-level vs action-level, where checks live |
-| secrets-management | Security | — | — | How secrets enter the app, rotation, what never goes in code |
-| logging | Infra | Y | — | Java: SLF4J, structured JSON, `@Redacted`. Rust: TBD (`tracing` crate) |
-| tracing | Infra | Y | — | Java: Micrometer, MDC, message attribute propagation. Rust: TBD |
-| adding-unit-tests | Test | Y | Y | Java: JUnit + AssertJ. Rust: `#[test]` + assert macros |
-| adding-integration-tests | Test | Y | Y | Java: full app + Postgres. Rust: services + test doubles or real SQLite |
-| test-data-isolation | Test | Y | Y | Fresh data per test, random IDs, no cross-test deps |
-| test-doubles | Test | — | Y | Rust-specific. Java covers this across integrating-external-* skills |
-| integrating-external-sdk | Test | Y | — | Test implementations of SDK client interfaces |
-| integrating-external-sdk-no-interface | Test | Y | — | Simulator pattern for concrete SDK classes |
-| integrating-external-api | Test | Y | — | Custom interface + HTTP impl + test double |
-| adding-flyway-migrations | Test | Y | N/A | Java/SQL-specific |
-| setting-up-docker-for-tests | Test | Y | N/A | Java: Postgres via docker-compose. Rust: SQLite in-memory |
-| project-documentation | Docs | Y | Y | Same structure: README, docs/, feature docs |
-| project-bootstrap | Setup | — | — | Formatting, linting, git hooks, dependency scanning. See [BOOTSTRAP.md](BOOTSTRAP.md) |
+| Skill | Category | Latest | java | rust | Notes |
+|---|---|---|---|---|---|
+| project-structure | Core | 1.0.0 | 1.0.0 | 1.0.0 | Java: domain-oriented packages. Rust: domain-oriented modules, lib/bin split |
+| component-design | Core | 1.0.0 | 1.0.0 | 1.0.0 | Java: controllers/services/repos/clients. Rust: services/repos/clients/calculators |
+| naming-conventions | Core | 1.0.0 | 1.0.0 | — | `*Service`, `*Client`, `*Calculator` suffixes. Rust follows informally |
+| entity-design | Core | 1.0.0 | 1.0.0 | N/A | JPA-specific (`with*` fluent mutators) |
+| dependency-injection | Core | 1.0.0 | 1.0.0 | N/A | Spring DI. Rust uses trait objects — see trait-boundaries |
+| trait-boundaries | Core | 1.0.0 | N/A | 1.0.0 | Rust: traits as contracts, `Box<dyn Trait>`, `RefCell` for test mutability |
+| error-handling | Core | 1.0.0 | 1.0.0 | 1.0.0 | Java: exception hierarchy + `@ControllerAdvice`. Rust: `thiserror` + `anyhow` |
+| configuration | Core | 1.0.0 | 1.0.0 | — | Java: `@ConfigurationProperties`, env vars, profiles. Rust: TBD |
+| input-validation | Core | — | — | — | Where/how to validate, sanitization, boundary rules |
+| api-design | Core | — | — | — | URL conventions, status codes, pagination, versioning, response shape |
+| authentication | Security | — | — | — | Auth flow patterns (JWT, OAuth2, API keys), middleware placement |
+| authorization | Security | — | — | — | Role/permission checks, resource-level vs action-level, where checks live |
+| secrets-management | Security | — | — | — | How secrets enter the app, rotation, what never goes in code |
+| logging | Infra | 1.0.0 | 1.0.0 | — | Java: SLF4J, structured JSON, `@Redacted`. Rust: TBD (`tracing` crate) |
+| tracing | Infra | 1.0.0 | 1.0.0 | — | Java: Micrometer, MDC, message attribute propagation. Rust: TBD |
+| adding-unit-tests | Test | 1.0.0 | 1.0.0 | 1.0.0 | Java: JUnit + AssertJ. Rust: `#[test]` + assert macros |
+| adding-integration-tests | Test | 1.0.0 | 1.0.0 | 1.0.0 | Java: full app + Postgres. Rust: services + test doubles or real SQLite |
+| test-data-isolation | Test | 1.0.0 | 1.0.0 | 1.0.0 | Fresh data per test, random IDs, no cross-test deps |
+| test-doubles | Test | 1.0.0 | — | 1.0.0 | Rust-specific. Java covers this across integrating-external-* skills |
+| integrating-external-sdk | Test | 1.0.0 | 1.0.0 | — | Test implementations of SDK client interfaces |
+| integrating-external-sdk-no-interface | Test | 1.0.0 | 1.0.0 | — | Simulator pattern for concrete SDK classes |
+| integrating-external-api | Test | 1.0.0 | 1.0.0 | — | Custom interface + HTTP impl + test double |
+| adding-flyway-migrations | Test | 1.0.0 | 1.0.0 | N/A | Java/SQL-specific |
+| setting-up-docker-for-tests | Test | 1.0.0 | 1.0.0 | N/A | Java: Postgres via docker-compose. Rust: SQLite in-memory |
+| project-documentation | Docs | 1.0.0 | 1.0.0 | 1.0.0 | Same structure: README, docs/, feature docs |
+| project-bootstrap | Setup | — | — | — | Formatting, linting, git hooks, dependency scanning. See [BOOTSTRAP.md](BOOTSTRAP.md) |
 
 ## Gaps and Priorities
 
