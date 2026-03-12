@@ -20,6 +20,7 @@ All source code is auto-formatted. No style debates in code review — the forma
 | Go | gofmt | None (built-in, zero config) |
 | Python | ruff format | `pyproject.toml` |
 | TypeScript | Prettier | `.prettierrc` |
+| Swift | SwiftFormat | `.swiftformat` |
 
 ### 2. Linting
 
@@ -37,6 +38,7 @@ Static analysis catches bugs, enforces idioms, and flags suspicious patterns bey
 | Go | golangci-lint | `.golangci.yml` |
 | Python | ruff | `pyproject.toml` |
 | TypeScript | ESLint | `eslint.config.js` |
+| Swift | SwiftLint | `.swiftlint.yml` |
 
 ### 3. Git hooks
 
@@ -55,6 +57,7 @@ Pre-commit hooks run format + lint before every commit. Code that doesn't pass n
 | Go | pre-commit | `.pre-commit-config.yaml` |
 | Python | pre-commit | `.pre-commit-config.yaml` |
 | TypeScript | husky + lint-staged | `.husky/`, `package.json` |
+| Swift | pre-commit | `.pre-commit-config.yaml` |
 
 ### 4. Dependency scanning
 
@@ -73,6 +76,7 @@ Automated checks for known vulnerabilities in dependencies. Runs in CI and optio
 | Go | `govulncheck` | Dependabot or Renovate |
 | Python | `pip-audit` | Dependabot or Renovate |
 | TypeScript | `npm audit` | Dependabot or Renovate |
+| Swift | `swift package audit` (or manual) | Dependabot or Renovate |
 
 ## Project checklist
 
