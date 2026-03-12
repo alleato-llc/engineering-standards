@@ -91,6 +91,7 @@ Known issues encountered when bootstrapping reference projects.
 ### Java / OWASP dependency-check
 
 - **Keep dependency-check on the latest version.** The NVD API schema evolves (e.g., new CVSS v4.0 enum values like `SAFETY` in `ModifiedCiaType`). Older versions fail with `ValueInstantiationException` when parsing updated NVD data. Version 11.1.1 is broken; use 12.2.0+.
+- **Increase Gradle heap to at least 2g.** The NVD database download exceeds the default 512 MiB daemon heap, causing `OutOfMemoryError`. Add `org.gradle.jvmargs=-Xmx2g -XX:MaxMetaspaceSize=512m` to `gradle.properties`.
 - **An NVD API key is required for reliable CI runs.** Without a key, the NVD API rate-limits aggressively and the initial database download will timeout or fail. Request a free key at https://nvd.nist.gov/developers/request-an-api-key, store it as a CI secret (`NVD_API_KEY`), and pass it via `nvd { apiKey = System.getenv('NVD_API_KEY') ?: '' }` in `build.gradle`.
 
 ### CI / GitHub Actions
