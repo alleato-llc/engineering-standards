@@ -78,6 +78,16 @@ Automated checks for known vulnerabilities in dependencies. Runs in CI and optio
 | TypeScript | `npm audit` | Dependabot or Renovate |
 | Swift | `swift package audit` (or manual) | Dependabot or Renovate |
 
+## Gotchas
+
+Known issues encountered when bootstrapping reference projects.
+
+### Java / Spotless + google-java-format
+
+- **google-java-format requires version-matching to the JDK.** google-java-format uses internal `com.sun.tools.javac` APIs that change between JDK releases. Running an older google-java-format on a newer JDK produces `NoSuchMethodError` at format time (e.g., `DeferredDiagnosticHandler.getDiagnostics()` changed its return type from `Queue` to `List` in Java 25). Fix: pin `googleJavaFormat('1.28.0')` or later for Java 25+.
+- **Spotless version matters too.** Spotless 7.x bundles an older default google-java-format. Use Spotless 8.0.0+ with Java 25 to get a compatible default, or pin the google-java-format version explicitly.
+- **Star imports must be resolved before Checkstyle passes.** Spotless reformats layout but does not expand star imports. After running `spotlessApply`, Checkstyle's `AvoidStarImport` rule will still fail on any `import foo.*` statements. Fix these manually or with your IDE's "optimize imports" action before the first commit.
+
 ## Project checklist
 
 When bootstrapping a new reference project, verify:
