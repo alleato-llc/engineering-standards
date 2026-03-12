@@ -88,6 +88,10 @@ Known issues encountered when bootstrapping reference projects.
 - **Spotless version matters too.** Spotless 7.x bundles an older default google-java-format. Use Spotless 8.0.0+ with Java 25 to get a compatible default, or pin the google-java-format version explicitly.
 - **Star imports must be resolved before Checkstyle passes.** Spotless reformats layout but does not expand star imports. After running `spotlessApply`, Checkstyle's `AvoidStarImport` rule will still fail on any `import foo.*` statements. Fix these manually or with your IDE's "optimize imports" action before the first commit.
 
+### CI / GitHub Actions
+
+- **`graalvm-community` distribution may not have latest JDK builds.** `actions/setup-java@v4` supports `graalvm-community` but builds lag behind GA releases. If Java 25+ isn't available yet, use `temurin` instead — CI doesn't need GraalVM-specific features.
+
 ## Project checklist
 
 When bootstrapping a new reference project, verify:
