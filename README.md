@@ -25,6 +25,11 @@ Skills are portable patterns that guide code generation. Each skill defines rule
 | trait-boundaries | Core | N/A | Y | Rust: traits as contracts, `Box<dyn Trait>`, `RefCell` for test mutability |
 | error-handling | Core | Y | Y | Java: exception hierarchy + `@ControllerAdvice`. Rust: `thiserror` + `anyhow` |
 | configuration | Core | Y | — | Java: `@ConfigurationProperties`, env vars, profiles. Rust: TBD |
+| input-validation | Core | — | — | Where/how to validate, sanitization, boundary rules |
+| api-design | Core | — | — | URL conventions, status codes, pagination, versioning, response shape |
+| authentication | Security | — | — | Auth flow patterns (JWT, OAuth2, API keys), middleware placement |
+| authorization | Security | — | — | Role/permission checks, resource-level vs action-level, where checks live |
+| secrets-management | Security | — | — | How secrets enter the app, rotation, what never goes in code |
 | logging | Infra | Y | — | Java: SLF4J, structured JSON, `@Redacted`. Rust: TBD (`tracing` crate) |
 | tracing | Infra | Y | — | Java: Micrometer, MDC, message attribute propagation. Rust: TBD |
 | adding-unit-tests | Test | Y | Y | Java: JUnit + AssertJ. Rust: `#[test]` + assert macros |
@@ -52,5 +57,10 @@ Skills are portable patterns that guide code generation. Each skill defines rule
 
 ### Cross-cutting — not yet in any project
 
-1. **CI/CD** — Build, test, release pipeline patterns
-2. **graceful-shutdown** — Startup/shutdown lifecycle patterns
+1. **input-validation** — Boundary validation rules, sanitization, reject vs coerce
+2. **api-design** — URL shape, status codes, pagination, versioning, response conventions
+3. **authentication** — JWT/OAuth2/API key patterns, middleware placement, accessing the authenticated user
+4. **authorization** — Role/permission model, where checks live, resource-level access control
+5. **secrets-management** — Extends configuration; vault integration, rotation, what never goes in code
+6. **CI/CD** — Build, test, release pipeline patterns
+7. **graceful-shutdown** — Startup/shutdown lifecycle patterns
