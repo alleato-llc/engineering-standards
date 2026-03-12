@@ -42,6 +42,7 @@ Skills are portable patterns that guide code generation. Each skill defines rule
 | adding-flyway-migrations | Test | Y | N/A | Java/SQL-specific |
 | setting-up-docker-for-tests | Test | Y | N/A | Java: Postgres via docker-compose. Rust: SQLite in-memory |
 | project-documentation | Docs | Y | Y | Same structure: README, docs/, feature docs |
+| project-bootstrap | Setup | — | — | Formatting, linting, git hooks, dependency scanning. See [BOOTSTRAP.md](BOOTSTRAP.md) |
 
 ## Gaps and Priorities
 
