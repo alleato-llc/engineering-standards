@@ -88,6 +88,11 @@ Known issues encountered when bootstrapping reference projects.
 - **Spotless version matters too.** Spotless 7.x bundles an older default google-java-format. Use Spotless 8.0.0+ with Java 25 to get a compatible default, or pin the google-java-format version explicitly.
 - **Star imports must be resolved before Checkstyle passes.** Spotless reformats layout but does not expand star imports. After running `spotlessApply`, Checkstyle's `AvoidStarImport` rule will still fail on any `import foo.*` statements. Fix these manually or with your IDE's "optimize imports" action before the first commit.
 
+### Java / OWASP dependency-check
+
+- **Keep dependency-check on the latest version.** The NVD API schema evolves (e.g., new CVSS v4.0 enum values like `SAFETY` in `ModifiedCiaType`). Older versions fail with `ValueInstantiationException` when parsing updated NVD data. Version 11.1.1 is broken; use 12.2.0+.
+- **An NVD API key is required for reliable CI runs.** Without a key, the NVD API rate-limits aggressively and the initial database download will timeout or fail. Request a free key at https://nvd.nist.gov/developers/request-an-api-key, store it as a CI secret (`NVD_API_KEY`), and pass it via `nvd { apiKey = System.getenv('NVD_API_KEY') ?: '' }` in `build.gradle`.
+
 ### CI / GitHub Actions
 
 - **`graalvm-community` distribution may not have latest JDK builds.** `actions/setup-java@v4` supports `graalvm-community` but builds lag behind GA releases. If Java 25+ isn't available yet, use `temurin` instead — CI doesn't need GraalVM-specific features.
