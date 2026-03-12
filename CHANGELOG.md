@@ -90,7 +90,7 @@ Initial versioned release. Swift: thin SwiftUI views, `@Environment` for DI, `Na
 ## concurrency
 
 ### 1.0.0 — 2026-03-12
-Initial versioned release. Swift: `async`/`await` for all async operations, `@MainActor` only for ViewModels, services non-isolated, `Task { }` for sync-to-async bridging, `Sendable` conformance. Generic name — Java could add virtual threads, Rust could add tokio.
+Initial versioned release. Java: virtual threads as default, structured concurrency (`StructuredTaskScope`) for fan-out, `CompletableFuture` composition rules, no `@Async`, connection pool protection via `Semaphore`, transaction boundary rules, bulk data partitioning, context propagation. Swift: `async`/`await` for all async operations, `@MainActor` only for ViewModels, services non-isolated, `Task { }` for sync-to-async bridging, `Sendable` conformance. Generic name — Rust could add tokio.
 
 ## state-management
 

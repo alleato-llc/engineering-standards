@@ -28,7 +28,7 @@ Skills are portable patterns that guide code generation. Each skill defines rule
 | input-validation | Core | — | — | — | — | Where/how to validate, sanitization, boundary rules |
 | api-design | Core | — | — | — | — | URL conventions, status codes, pagination, versioning, response shape |
 | view-architecture | UI | 1.0.0 | N/A | N/A | 1.0.0 | Swift: thin SwiftUI views, `@Environment`, navigation patterns |
-| concurrency | Infra | 1.0.0 | — | — | 1.0.0 | Swift: `async`/`await`, `@MainActor`. Java: virtual threads TBD. Rust: tokio TBD |
+| concurrency | Infra | 1.0.0 | 1.0.0 | — | 1.0.0 | Java: virtual threads, structured concurrency, connection pool protection. Swift: `async`/`await`, `@MainActor`. Rust: tokio TBD |
 | state-management | UI | 1.0.0 | N/A | N/A | 1.0.0 | Swift: `@Observable`, `@State`, `@Environment`, `@Bindable` |
 | persistence | Core | 1.0.0 | — | — | 1.0.0 | Swift: SwiftData `@Model`, `ModelContainer`. Java: covered by entity-design + flyway |
 | authentication | Security | — | — | — | — | Auth flow patterns (JWT, OAuth2, API keys), middleware placement |
@@ -60,8 +60,7 @@ Skills are portable patterns that guide code generation. Each skill defines rule
 
 ### Java/Spring Boot gaps
 
-1. **concurrency** — Virtual threads, structured concurrency
-2. **persistence** — Covered by entity-design + flyway. Consider unified overview.
+1. **persistence** — Covered by entity-design + flyway. Consider unified overview.
 
 ### Cross-cutting — not yet in any project
 
