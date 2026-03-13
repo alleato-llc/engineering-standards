@@ -43,6 +43,7 @@ Skills are portable patterns that guide code generation. Each skill defines rule
 | schema-migrations | Test | 1.0.0 | 1.0.0 | N/A | 1.0.0 | Java: Flyway versioned SQL. Swift: SwiftData VersionedSchema + SchemaMigrationPlan |
 | setting-up-docker-for-tests | Test | 1.0.0 | 1.0.0 | N/A | N/A | Java: Postgres via docker-compose |
 | project-documentation | Docs | 1.0.0 | 1.0.0 | 1.0.0 | 1.0.0 | Same structure: README, docs/, feature docs |
+| app-icon | Build | 1.1.0 | N/A | N/A | 1.1.0 | Swift: Python/Pillow script, venv auto-bootstrap, XcodeGen pre-build phase. macOS: multi-size icons |
 | project-bootstrap | Setup | — | — | — | — | Formatting, linting, git hooks, dependency scanning. See [BOOTSTRAP.md](BOOTSTRAP.md) |
 
 ## Gaps and Priorities

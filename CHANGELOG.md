@@ -82,6 +82,14 @@ Initial versioned release. Docker-managed Postgres, decision framework for docke
 ### 1.0.0 — 2026-03-12
 Initial versioned release. Required root files (README, CONTRIBUTING, LICENSE, SECURITY, CLAUDE.md), docs/ structure, feature doc template, when-to-update table.
 
+## app-icon
+
+### 1.1.0 — 2026-03-13
+Venv auto-bootstrap: `ensure_pillow()` creates `scripts/.venv/` and installs Pillow on first run, eliminating manual `pip install`. Build script prefers venv Python to avoid version mismatch (`_imaging` ImportError when Xcode python3 differs from venv creator). Added `INFOPLIST_KEY_CFBundleIconName: AppIcon` build setting required for runtime icon display on macOS. macOS icon generation now produces all 10 standard sizes (16–512 at 1x/2x) with `"idiom": "mac"` in Contents.json — the `"idiom": "universal"` format causes "unassigned child" warnings and no icon at runtime.
+
+### 1.0.0 — 2026-03-12
+Initial versioned release. Python/Pillow script as single source of truth for app icon, XcodeGen pre-build phase, generated PNG gitignored. Swift-only (iOS).
+
 ## view-architecture
 
 ### 1.0.0 — 2026-03-12
