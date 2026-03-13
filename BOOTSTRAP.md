@@ -97,6 +97,8 @@ Known issues encountered when bootstrapping reference projects.
 ### CI / GitHub Actions
 
 - **`graalvm-community` distribution may not have latest JDK builds.** `actions/setup-java@v4` supports `graalvm-community` but builds lag behind GA releases. If Java 25+ isn't available yet, use `temurin` instead — CI doesn't need GraalVM-specific features.
+- **Dependabot PRs cannot access repo secrets.** Dependency scanning that requires an API key (e.g., NVD) will fail with HTTP 429 rate limiting on Dependabot PRs. Skip the scan with `if: github.actor != 'dependabot[bot]'` — the scan still runs on push to `main` and non-Dependabot PRs.
+- **Add an explicit Postgres health wait.** Even with `--health-cmd` on a service container, add a `pg_isready` wait step before tests for robustness — the health check confirms the container is healthy, but the port-forwarding to the runner may not be ready yet.
 
 ## Project checklist
 
