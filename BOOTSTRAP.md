@@ -68,6 +68,7 @@ Automated checks for known vulnerabilities in dependencies. Runs in CI and optio
 - Automated PRs for dependency updates (Dependabot or Renovate)
 - Critical/high vulnerabilities block merge
 - Scanning covers both direct and transitive dependencies
+- **Fix before suppressing.** When a CVE is flagged: (1) upgrade the direct dependency, (2) if it's transitive, force the version via the build tool's resolution strategy, (3) only suppress as a last resort with a comment explaining why the upgrade isn't possible. Suppressions hide real issues and go stale.
 
 | Language | Scanning tool | Update tool |
 |---|---|---|
